@@ -1,0 +1,482 @@
+/* ================================================
+   VNEXPRESS PHISHING DEMO - STYLE 2008 HACKER
+   Mon An toan Ung dung Web
+   ================================================ */
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: #f0f0f0;
+    overflow-x: hidden;
+    font-family: Arial, Helvetica, sans-serif;
+    min-height: 100vh;
+}
+
+/* ============ HEADER ============ */
+.header {
+    background: #fff;
+    border-bottom: 3px solid #9f224e;
+    padding: 15px 25px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header img {
+    height: 42px;
+    width: auto;
+}
+
+.login-btn {
+    background: #9f224e;
+    color: white;
+    border: none;
+    padding: 10px 25px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.login-btn:hover {
+    background: #7d1a3d;
+}
+
+.user-info {
+    display: none;
+    color: #333;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.user-info span {
+    color: #9f224e;
+}
+
+/* ============ LOGIN MODAL ============ */
+.login-modal {
+    display: flex;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.8);
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+}
+
+.login-box {
+    background: #fff;
+    padding: 35px;
+    border: 1px solid #ccc;
+    width: 380px;
+    max-width: 90%;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+}
+
+.login-header {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.login-header img {
+    height: 50px;
+    margin-bottom: 12px;
+}
+
+.login-header h2 {
+    color: #333;
+    font-size: 20px;
+    margin-bottom: 5px;
+}
+
+.login-header p {
+    color: #666;
+    font-size: 13px;
+}
+
+.form-group {
+    margin-bottom: 18px;
+}
+
+.form-group label {
+    display: block;
+    color: #333;
+    font-size: 13px;
+    margin-bottom: 6px;
+    font-weight: bold;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    font-size: 14px;
+}
+
+.form-group input:focus {
+    outline: none;
+    border-color: #9f224e;
+}
+
+.submit-btn {
+    width: 100%;
+    background: #9f224e;
+    color: white;
+    border: none;
+    padding: 12px;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 8px;
+}
+
+.submit-btn:hover {
+    background: #7d1a3d;
+}
+
+.close-btn {
+    display: none;
+}
+
+.error-msg {
+    color: #cc0000;
+    font-size: 12px;
+    margin-top: 8px;
+    display: none;
+}
+
+.success-msg {
+    color: #009900;
+    font-size: 13px;
+    margin-top: 8px;
+    display: none;
+    text-align: center;
+    font-weight: bold;
+}
+
+.divider {
+    text-align: center;
+    margin: 18px 0;
+    position: relative;
+}
+
+.divider::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: #ddd;
+}
+
+.divider span {
+    background: white;
+    padding: 0 12px;
+    color: #999;
+    font-size: 12px;
+    position: relative;
+}
+
+.google-btn {
+    width: 100%;
+    background: white;
+    color: #333;
+    border: 1px solid #ddd;
+    padding: 10px;
+    font-size: 13px;
+    font-weight: 500;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    margin-bottom: 15px;
+}
+
+.google-btn:hover {
+    background: #f5f5f5;
+}
+
+.google-icon {
+    width: 16px;
+    height: 16px;
+}
+
+/* ============ CONTENT ============ */
+.content img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.content-section {
+    padding: 25px;
+    background: #fff;
+    margin: 20px;
+    border: 1px solid #ddd;
+}
+
+.content-section h2 {
+    font-size: 22px;
+    color: #9f224e;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #9f224e;
+}
+
+.article-item {
+    cursor: pointer;
+    padding: 15px;
+    margin-bottom: 15px;
+    display: flex;
+    gap: 15px;
+    align-items: flex-start;
+    border: 1px solid #eee;
+    transition: background 0.2s;
+}
+
+.article-item:hover {
+    background: #f5f5f5;
+}
+
+.article-item img {
+    width: 180px;
+    height: 120px;
+    min-width: 180px;
+    object-fit: cover;
+    background: #ddd;
+}
+
+.article-content {
+    flex: 1;
+}
+
+.article-title {
+    font-size: 17px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 8px;
+}
+
+.article-item:hover .article-title {
+    color: #9f224e;
+}
+
+.article-desc {
+    font-size: 14px;
+    color: #666;
+    line-height: 1.5;
+}
+
+/* ============ INFO POPUP - TEAM ============ */
+.info-popup {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.7);
+    z-index: 2000;
+    justify-content: center;
+    align-items: center;
+}
+
+.info-box {
+    background: #fff;
+    padding: 15px;
+    border: 2px solid #9f224e;
+    width: 600px;
+    max-width: 95%;
+    display: flex;
+    flex-direction: column;
+}
+
+.info-box h3 {
+    color: #9f224e;
+    margin-bottom: 10px;
+    text-align: center;
+    font-size: 14px;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 8px;
+}
+
+.info-row {
+    display: flex;
+    gap: 15px;
+    align-items: stretch;
+}
+
+.info-video {
+    width: 180px;
+    flex-shrink: 0;
+    border-radius: 3px;
+    overflow: hidden;
+    border: 1px solid #9f224e;
+    display: flex;
+    align-items: center;
+}
+
+.info-video video {
+    width: 100%;
+    display: block;
+}
+
+.info-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.member-item {
+    background: #f9f9f9;
+    padding: 6px 8px;
+    margin-bottom: 4px;
+    border-left: 3px solid #9f224e;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.member-item:last-child {
+    margin-bottom: 0;
+}
+
+.member-item:hover {
+    background: #f0f0f0;
+}
+
+.member-avatar {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 1px solid #9f224e;
+}
+
+.member-info {
+    flex: 1;
+}
+
+.member-id {
+    font-weight: bold;
+    color: #9f224e;
+    font-size: 12px;
+    margin-bottom: 2px;
+}
+
+.member-name {
+    color: #333;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.info-close {
+    width: 100%;
+    background: #9f224e;
+    color: white;
+    border: none;
+    padding: 8px;
+    margin-top: 10px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 12px;
+}
+
+.info-close:hover {
+    background: #7d1a3d;
+}
+
+/* ============ RANSOMWARE POPUP ============ */
+.ransom-popup {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.8);
+    z-index: 3000;
+    justify-content: center;
+    align-items: center;
+}
+
+.ransom-box {
+    background: #1a1a1a;
+    border: 2px solid #ff0000;
+    padding: 25px 30px;
+    width: 420px;
+    max-width: 95%;
+    text-align: center;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.ransom-title {
+    color: #ff0000;
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.ransom-email {
+    background: #ff0000;
+    color: #fff;
+    padding: 8px 15px;
+    font-size: 14px;
+    font-weight: bold;
+    margin: 10px 0;
+    display: inline-block;
+}
+
+.ransom-session {
+    color: #888;
+    font-size: 11px;
+    margin: 8px 0;
+    font-family: 'Courier New', monospace;
+}
+
+.ransom-session span {
+    color: #ffcc00;
+    font-weight: bold;
+}
+
+.ransom-message {
+    color: #ccc;
+    font-size: 13px;
+    line-height: 1.6;
+    margin: 15px 0;
+    text-align: center;
+    padding: 12px;
+    border: 1px solid #444;
+    background: #222;
+}
+
+.ransom-close {
+    background: #ff0000;
+    color: #fff;
+    border: none;
+    padding: 10px 30px;
+    font-size: 13px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 15px;
+    font-family: 'Courier New', monospace;
+}
+
+.ransom-close:hover {
+    background: #cc0000;
+}

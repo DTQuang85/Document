@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VnExpress</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: white;
+            padding: 20px;
+        }
+
+        a {
+            color: blue;
+            text-decoration: underline;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        a:hover {
+            color: #0000cc;
+        }
+
+        #newsFrame {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            border: none;
+            z-index: 9999;
+        }
+
+        body.fullscreen-mode {
+            overflow: hidden;
+        }
+
+        body.fullscreen-mode #newsFrame {
+            display: block;
+        }
+
+        body.fullscreen-mode > *:not(#newsFrame) {
+            display: none !important;
+        }
+    </style>
+</head>
+<body>
+    <a href="#" onclick="goFullscreenAndNavigate(event)">VnExpress</a>
+    <iframe id="newsFrame" src=""></iframe>
+
+    <script>
+        var isActive = false;
+        
+        function goFullscreenAndNavigate(e) {
+            e.preventDefault();
+            
+            var iframe = document.getElementById('newsFrame');
+            if (!iframe.src || iframe.src === '' || iframe.src === window.location.href) {
+                iframe.src = 'news.html';
+            }
+            
+            isActive = true;
+            document.body.classList.add('fullscreen-mode');
+            
+            // Fullscreen
+            var elem = document.documentElement;
+            if (elem.requestFullscreen) {
+                elem.requestFullscreen().catch(function(){});
+            } else if (elem.webkitRequestFullscreen) {
+                elem.webkitRequestFullscreen();
+            }
+        }
+
+        // Khi thoát fullscreen -> vào lại ngay
+        document.addEventListener('fullscreenchange', function() {
+            if (!document.fullscreenElement && isActive) {
+                // Tự động vào lại fullscreen
+                setTimeout(function() {
+                    var elem = document.documentElement;
+                    if (elem.requestFullscreen) {
+                        elem.requestFullscreen().catch(function(){});
+                    }
+                }, 100);
+            }
+        });
+    </script>
+</body>
+</html>

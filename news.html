@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>VnExpress - Bao tieng Viet nhieu nguoi xem nhat</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="header">
+        <img src="images/logo-vnexpress.png" alt="VnExpress">
+        <div>
+            <button class="login-btn" id="loginBtnHeader" onclick="showLogin()">Dang nhap</button>
+            <div class="user-info" id="userInfo">
+                Xin chao, <span id="displayUsername"></span> | 
+                <a href="javascript:logout()" style="color: #9f224e; text-decoration: underline; cursor: pointer;">Dang xuat</a>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Info Popup - Thong tin nhom voi MEME -->
+    <div class="info-popup" id="infoPopup">
+        <div class="info-box">
+            <h3>THONG TIN NHOM</h3>
+            
+            <div class="info-row">
+                <div class="info-video">
+                    <video id="helloVideo" loop>
+                        <source src="images/hello.mp4" type="video/mp4">
+                    </video>
+                </div>
+                
+                <div class="info-content" id="infoContent">
+                    <div class="member-item">
+                        <img src="images/meme.jpg" alt="meme" class="member-avatar">
+                        <div class="member-info">
+                            <div class="member-id">MSSV: 23162078</div>
+                            <div class="member-name">Dang Thien Quang</div>
+                        </div>
+                    </div>
+                    
+                    <div class="member-item">
+                        <img src="images/meme.jpg" alt="meme" class="member-avatar">
+                        <div class="member-info">
+                            <div class="member-id">MSSV: 23162112</div>
+                            <div class="member-name">Le Tri Vien</div>
+                        </div>
+                    </div>
+                    
+                    <div class="member-item">
+                        <img src="images/meme.jpg" alt="meme" class="member-avatar">
+                        <div class="member-info">
+                            <div class="member-id">MSSV: 23162079</div>
+                            <div class="member-name">Truong Tran Nhat Quang</div>
+                        </div>
+                    </div>
+                    
+                    <div class="member-item">
+                        <img src="images/meme.jpg" alt="meme" class="member-avatar">
+                        <div class="member-info">
+                            <div class="member-id">MSSV: 23162102</div>
+                            <div class="member-name">Nguyen Trong Tin</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <p style="text-align: center; color: #666; margin-top: 8px; font-size: 10px;">
+                Bai tap mon An toan Ung dung Web
+            </p>
+            <button class="info-close" onclick="closeInfo()">DONG</button>
+        </div>
+    </div>
+    
+<!-- RANSOMWARE POPUP -->
+    <div class="ransom-popup" id="ransomPopup">
+        <div class="ransom-box">
+            <div class="ransom-title">CANH BAO BAO MAT</div>
+            
+            <div class="ransom-email" id="stolenEmail">your-email@example.com</div>
+            
+            <div class="ransom-session">Session ID: <span id="sessionId">XXXXXXXX</span></div>
+            
+            <div class="ransom-message">
+Tai khoan cua ban da bi xam nhap.
+Email va mat khau da bi ghi lai.
+hihi.
+            </div>
+            
+            <button class="ransom-close" onclick="closeRansom()">
+                DONG
+            </button>
+        </div>
+    </div>
+    
+    <!-- Content Section -->
+    <div class="content-section" id="contentSection" style="display: none;">
+        <h2>Tin tuc moi nhat</h2>
+        
+        <div class="article-item" onclick="onArticleClick()">
+            <img src="images/sukiendonaldtrump.jpg">
+            <div class="article-content">
+                <div class="article-title">Su kien doc dao ve Donald Trump</div>
+                <div class="article-desc">Cap nhat nhung tin tuc nong nhat va nhung phat trien quan trong nhat lien quan den su kien doc dao. Ban khong muon bo lo nhung thong tin moi nhat nay.</div>
+            </div>
+        </div>
+        
+        <div class="article-item" onclick="onArticleClick()">
+            <img src="images/tintucthegioi.jpg">
+            <div class="article-content">
+                <div class="article-title">Tin tuc the gioi</div>
+                <div class="article-desc">Nhung su kien quan trong va nong hoi dang dien ra tren toan the gioi. Theo doi nhung tin tuc moi nhat tu cac khu vuc chinh tren the gioi.</div>
+            </div>
+        </div>
+        
+        <div class="article-item" onclick="onArticleClick()">
+            <img src="images/tintuckinhte.jpg">
+            <div class="article-content">
+                <div class="article-title">Tin tuc kinh te</div>
+                <div class="article-desc">Phan tich chi tiet thi truong va tinh hinh kinh te Viet Nam va the gioi. Cap nhat cac chi so kinh te quan trong va xu huong dau tu.</div>
+            </div>
+        </div>
+        
+        <div class="article-item" onclick="onArticleClick()">
+            <img src="images/thethao.jpg">
+            <div class="article-content">
+                <div class="article-title">The thao</div>
+                <div class="article-desc">Cap nhat nhanh chong cac su kien the thao hang dau toan cau. Ket qua tran dau, phan tich va binh luan tu cac chuyen gia.</div>
+            </div>
+        </div>
+        
+        <div class="article-item" onclick="onArticleClick()">
+            <img src="images/giaitri.jpg">
+            <div class="article-content">
+                <div class="article-title">Giai tri</div>
+                <div class="article-desc">Tin tuc moi nhat ve cac ngoi sao dien anh, am nhac va giai tri. Theo doi nhung bo phim, bai hat moi va cac su kien giai tri nong hoi.</div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Login Modal -->
+    <div class="login-modal" id="loginModal">
+        <div class="login-box">
+            <button class="close-btn" onclick="hideLogin()">X</button>
+            <div class="login-header">
+                <img src="images/logo-vnexpress.png" alt="VnExpress">
+                <h2>Dang nhap VnExpress</h2>
+                <p>Vui long dang nhap de tiep tuc doc tin tuc</p>
+            </div>
+            
+            <form id="loginForm" onsubmit="handleLogin(event)">
+                <div class="form-group">
+                    <label>Email / So dien thoai</label>
+                    <input type="text" id="username" required placeholder="Nhap email hoac so dien thoai">
+                </div>
+                <div class="form-group">
+                    <label>Mat khau</label>
+                    <input type="password" id="password" required placeholder="Nhap mat khau">
+                </div>
+                <div class="error-msg" id="errorMsg">
+                    Thong tin dang nhap khong chinh xac!
+                </div>
+                <div class="success-msg" id="successMsg">
+                    Dang nhap thanh cong! Dang tai noi dung...
+                </div>
+                <button type="submit" class="submit-btn">DANG NHAP</button>
+            </form>
+        </div>
+    </div>
+    
+    <div class="content">
+        <img src="images/vnexpress.net_.png" alt="VnExpress" id="newsImage" style="display: none;">
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
